@@ -1,0 +1,76 @@
+### Criar pessoa maior de idade
+POST http://localhost:5077/api/Pessoas
+Content-Type: application/json
+
+{
+  "nome": "João",
+  "idade": 30
+}
+
+### Listar todas as pessoas
+GET http://localhost:5077/api/Pessoas
+
+### Criar pessoa menor de idade
+POST http://localhost:5077/api/Pessoas
+Content-Type: application/json
+
+{
+  "nome": "Ana",
+  "idade": 15
+}
+
+### Criar receita para João (maior de idade)
+POST http://localhost:5077/api/Transacoes
+Content-Type: application/json
+
+{
+  "descricao": "Salário",
+  "valor": 5000,
+  "tipo": 0,
+  "pessoaId": "51125e51-5a2a-4fae-b863-a045118e5cb6"
+}
+
+### Criar despesa para Ana (menor de idade)
+POST http://localhost:5077/api/Transacoes
+Content-Type: application/json
+
+{
+  "descricao": "Lanche",
+  "valor": 20,
+  "tipo": 1,
+  "pessoaId": "9bd79d01-fe86-4248-9621-4cac213fb9bc"
+}
+
+### Tentar criar receita para Ana (deve falhar)
+POST http://localhost:5077/api/Transacoes
+Content-Type: application/json
+
+{
+  "descricao": "Mesada",
+  "valor": 100,
+  "tipo": 0,
+  "pessoaId": "9bd79d01-fe86-4248-9621-4cac213fb9bc"
+}
+
+### Tentar criar transação para pessoa que não existe
+POST http://localhost:5077/api/Transacoes
+Content-Type: application/json
+
+{
+  "descricao": "Teste",
+  "valor": 50,
+  "tipo": 1,
+  "pessoaId": "00000000-0000-0000-0000-000000000000"
+}
+
+### Consultar relatório de totais
+GET http://localhost:5077/api/Relatorios
+
+### Remover a Ana (menor de idade)
+DELETE http://localhost:5077/api/Pessoas/9bd79d01-fe86-4248-9621-4cac213fb9bc
+
+### Confirmar que a Ana sumiu da listagem de pessoas
+GET http://localhost:5077/api/Pessoas
+
+### Confirmar que a transação da Ana também sumiu
+GET http://localhost:5077/api/Transacoes
