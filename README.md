@@ -115,10 +115,3 @@ O arquivo `GastosResidenciais.Api/requests.http` contém exemplos de requisiçõ
 ## Persistência de dados
 
 Os dados são armazenados em um arquivo de banco SQLite (`GastosResidenciais.db`), criado automaticamente na pasta do back-end. Isso significa que as informações cadastradas continuam disponíveis mesmo depois de fechar e abrir a aplicação novamente.
-
-## Possíveis melhorias futuras
-
-- Autenticação e controle de acesso
-- Edição de transações já cadastradas
-- Filtros e paginação nas listagens
-- Testes automatizados (unitários e de integração)
